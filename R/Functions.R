@@ -1,9 +1,18 @@
-setwd("~/OneDrive - IESEG/Semestre_2/Statistics and Machine Learning for MKT/Kaggle/data")
-train<-readRDS(file = "train.rds")
-train1<-train
+#########################
+#########################
+#    Functions in R     #
+#   By: James Ponce     #
+#########################
+#########################
 
-# Function for reducing levels in factor variable
-# Inputs: fvar: factor variable, perc: % min to be considered as a relevant level.
+####################################################
+# Function for reducing levels in factor variable  #
+# Inputs:                                          #
+# fvar: variable in vector format                  #
+# perc: % min to be considered as a relevant level #
+# Output:
+# fvar with factors reduced.
+####################################################
 redu_levels<- function(fvar,perc=0.01){
   fvar<-as.factor(fvar)
   # Condition level usage less that perc%
