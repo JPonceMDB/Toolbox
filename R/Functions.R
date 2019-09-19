@@ -30,16 +30,17 @@ redu_levels<- function(fvar,perc=0.01){
   return(fvar)
 }
 
-# Running the function for 27-1 variables
-train1[,2:27]<-as.data.frame(lapply(train1[,2:27],redu_levels,perc=0.01))
+###########################################################################
+# Function to calculate the most frequent category in categorial variable.
+# Input: vector x (categorical)
+# Output: most popular category value
+###########################################################################
+most_frequent_category <- function(x) {
+  categories <- table(x)
+  return(names(categories[which.max(categories)]))
+}
 
-# Verifying
-lapply(train1[,2:27],function(x) round(table(x)/length(x)*100,3))
 
-# Comparing before/after levels
-before<-sapply(train[,2:27], function(x) length(levels(as.factor(x))))
-after<-sapply(train1[,2:27], function(x) length(levels(x)))
-cbind(before,after)
 
 
 
